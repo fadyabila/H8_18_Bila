@@ -72,7 +72,7 @@ where teachers.salary = (select distinct max(salary) from teachers a where a.id 
                         having max(salary))
 order by name asc, salary desc, teachers_id;
 
-# cara 2 (per courses name)
+# cara 2 (per courses name & max)
 select x.* from
 (select a.*,
 	ROW_NUMBER() OVER(PARTITION BY name order by a.name asc, a.salary desc) AS row_num
